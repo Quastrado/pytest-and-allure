@@ -9,7 +9,7 @@ from abstract.selenium_listener import MyListener
 @pytest.fixture
 def get_chrome_options():
     options = chrome_options()
-    options.add_argument('chrome')  # Use headles if you do not need a browser UI
+    options.add_argument('chrome')  # Use headless if you do not need a browser UI
     options.add_argument('--start-maximized')
     options.add_argument('--window-size=1650,900')
     return options
