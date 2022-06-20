@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options as chrome_options
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
 from abstract.selenium_listener import MyListener
-from config import url
+from .config import url
 
 
 @pytest.fixture
@@ -24,10 +24,9 @@ def get_webdriver(get_chrome_options):
 
 
 @pytest.fixture(scope='function')
-def setup(request, get_webdriver, url):
+def setup(request, get_webdriver):
     driver = get_webdriver
     driver = EventFiringWebDriver(driver, MyListener())
-    url = url
     if request.cls is not None:
         request.cls.driver = driver
     driver.get(url)
