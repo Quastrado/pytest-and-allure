@@ -1,4 +1,5 @@
 from base.selenium_base import SeleniumBase
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 from .config import *
 
@@ -23,9 +24,12 @@ class YandexSearchPage(SeleniumBase):
         
 
     def switch_disighn(self, xpath):
-        switcher = self.is_visiable('class_name', self.__switcher_class_name)
-        switcher.click()
-        element = self.is_visiable('xpath', xpath)
+        try:
+            switcher = self.is_visiable('class_name', self.__switcher_class_name)
+            switcher.click()
+        except TimeoutException:
+            print('Page Not Found')
+        self.is_visiable('xpath', xpath)
 
 
 

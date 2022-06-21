@@ -1,6 +1,5 @@
 import pytest
 from pom.yandex_search_page import YandexSearchPage
-from abstract.not_found_exception_raiser import check_url
 from .config import *
 import allure
 
@@ -20,7 +19,6 @@ class TestHomepage:
     @allure.story('Change of design to the old one')
     @pytest.mark.parametrize('expected_exception, element_name, xpath', switch_desighn_data)
     def test_switch_design(self, expected_exception, element_name, xpath):
-        check_url(url)
         with allure.step('Search page opening'):
             with pytest.raises(expected_exception):
                 yandex_search_page = YandexSearchPage(self.driver)
