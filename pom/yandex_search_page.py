@@ -25,6 +25,7 @@ class YandexSearchPage(SeleniumBase):
 
     def switch_disighn(self, xpath):
         try:
+            self.is_visiable('xpath', xpath)
             switcher = self.is_visiable('class_name', self.__switcher_class_name)
             switcher.click()
         except TimeoutException:
