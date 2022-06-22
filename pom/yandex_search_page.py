@@ -10,9 +10,8 @@ class YandexSearchPage(SeleniumBase):
         self.driver = driver
         self.__central_input_search_xpath = central_input_search_xpath
         self.__upper_input_search_xpath = upper_input_search_xpath
-        self.__switcher_class_name = 'footer3__disable-new-design-toggle'
-        self.left_logo_xpath = '/html/body/main/div[1]/a'
-
+        self.__switcher_class_name = switcher_class_name
+    
     
     def send_query_search(self, query):
         central_input_search = self.is_present('xpath', self.__central_input_search_xpath)
