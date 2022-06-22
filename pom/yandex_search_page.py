@@ -1,3 +1,4 @@
+from lib2to3.pgen2 import driver
 from base.selenium_base import SeleniumBase
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
@@ -30,6 +31,15 @@ class YandexSearchPage(SeleniumBase):
         except TimeoutException:
             print('Page Not Found')
         self.is_visiable('xpath', xpath)
+
+    
+    def following_link(self, xpath, expected_element_xpath):
+        try:
+            link = self.is_visiable('xpath', xpath)
+            link.click()
+            self.is_visiable('xpath', expected_element_xpath)
+        except TimeoutException as ex:
+            print("Exception has been thrown. " + str(ex))
 
 
 

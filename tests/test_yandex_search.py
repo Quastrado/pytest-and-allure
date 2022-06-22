@@ -1,3 +1,4 @@
+from os import link
 import pytest
 from pom.yandex_search_page import YandexSearchPage
 from .config import *
@@ -24,3 +25,12 @@ class TestHomepage:
                 yandex_search_page = YandexSearchPage(self.driver)
                 with allure.step(f'Checking for the absence of an element: {element_name}'):
                     yandex_search_page.switch_disighn(xpath) == True
+
+    @allure.feature('Test 3')
+    @allure.story('Following links on the page')
+    @pytest.mark.parametrize('link, link_xpath, expected_element_xpath', following_links_data)
+    def test_following_links(self, link, link_xpath, expected_element_xpath):
+        with allure.step('Search page opening'):
+            yandex_search_page = YandexSearchPage(self.driver)
+            with allure.step(f'Following a link: {link}'):
+                yandex_search_page.following_link(link_xpath, expected_element_xpath)
