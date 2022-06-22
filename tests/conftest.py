@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+import allure
 
 from abstract.selenium_listener import MyListener
 from .config import url
@@ -29,6 +30,7 @@ def setup(request, get_webdriver):
     driver = EventFiringWebDriver(driver, MyListener())
     if request.cls is not None:
         request.cls.driver = driver
-    driver.get(url)
+    with allure.step('Page "ya.ru" open'):
+        driver.get(url)
     yield driver
     driver.quit()
