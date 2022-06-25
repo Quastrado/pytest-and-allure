@@ -23,7 +23,7 @@ class YandexSearchPage(SeleniumBase):
         return value
         
 
-    def switch_disighn(self, xpath):
+    def find_element_after_switch(self, xpath):
         try:
             self.is_visiable('xpath', xpath)
             switcher = self.is_visiable('class_name', self.__switcher_class_name)
@@ -31,6 +31,7 @@ class YandexSearchPage(SeleniumBase):
         except TimeoutException:
             print('Page Not Found')
         self.is_visiable('xpath', xpath)
+        return True
 
     
     def following_link(self, xpath, expected_element_xpath):

@@ -22,7 +22,7 @@ class TestHomepage:
         with pytest.raises(expected_exception):
             yandex_search_page = YandexSearchPage(self.driver)
             with allure.step(f'Checking for the absence of an element: {element_name}'):
-                yandex_search_page.switch_disighn(xpath) == True
+                yandex_search_page.find_element_after_switch(xpath) == True
 
     @allure.feature('Verification of the transition on the link on the page')
     @allure.story('Following links on the page')
