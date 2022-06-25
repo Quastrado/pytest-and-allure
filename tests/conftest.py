@@ -15,6 +15,7 @@ def get_chrome_options():
     options.add_argument('--start-maximized')
     options.add_argument('--window-size=1650,900')
     options.add_argument(f'user_agent={user_agent}')
+    options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
     return options

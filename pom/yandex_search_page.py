@@ -1,4 +1,3 @@
-from lib2to3.pgen2 import driver
 from base.selenium_base import SeleniumBase
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
@@ -11,6 +10,7 @@ class YandexSearchPage(SeleniumBase):
         self.driver = driver
         self.__central_input_search_xpath = central_input_search_xpath
         self.__upper_input_search_xpath = upper_input_search_xpath
+        self.__search_results = search_results_xpath
         self.__switcher_class_name = switcher_class_name
     
     
@@ -20,9 +20,10 @@ class YandexSearchPage(SeleniumBase):
         central_input_search.send_keys(Keys.ENTER)
         upper_input_search = self.is_visiable('xpath', self.__upper_input_search_xpath)
         value = upper_input_search.get_attribute(upper_input_search_value)
-        return value
-        
+        results = self.are_present('xpath', search_results_xpath)
+        return {'value': value, 'results': results}
 
+    
     def find_element_after_switch(self, xpath):
         try:
             self.is_visiable('xpath', xpath)
