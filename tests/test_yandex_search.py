@@ -58,3 +58,10 @@ class TestHomepage:
         yandex_search_page = YandexSearchPage(self.driver)
         with allure.step(f'Following a link: {link}'):
             yandex_search_page.following_link(link_xpath, expected_element_xpath)
+
+
+    @allure.feature('Login button test')
+    @allure.story('Following links on the page')
+    def test_login_button(self):
+        yandex_search_page = YandexSearchPage(self.driver)
+        yandex_search_page.login_button_click()

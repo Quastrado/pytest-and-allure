@@ -12,6 +12,7 @@ class YandexSearchPage(SeleniumBase):
         self.__upper_input_search_xpath = upper_input_search_xpath
         self.__search_results = search_results_xpath
         self.__switcher_class_name = switcher_class_name
+        self.__login_button_xpath = login_button_xpath
     
     
     def send_query_search(self, query):
@@ -43,5 +44,9 @@ class YandexSearchPage(SeleniumBase):
         except TimeoutException as ex:
             print("Exception has been thrown. " + str(ex))
 
-
+    
+    def login_button_click(self):
+        login_button = self.is_visiable('xpath', self.__login_button_xpath)
+        login_button.click()
+        self.is_visiable('xpath', login_form_xpath)
 
