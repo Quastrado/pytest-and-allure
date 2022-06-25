@@ -5,7 +5,7 @@ from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriv
 import allure
 
 from abstract.selenium_listener import MyListener
-from .config import url
+from .test_data import url
 
 
 @pytest.fixture
