@@ -1,4 +1,5 @@
 from os import link
+from time import time
 import pytest
 from pom.yandex_search_page import YandexSearchPage
 from .test_data import *
@@ -7,13 +8,23 @@ import allure
 @pytest.mark.usefixtures('setup')
 class TestHomepage:
 
-    @allure.feature('Checking the functionality of the search string')
+    @allure.feature('Request text matching')
     @allure.story('Go to results page')
     @pytest.mark.parametrize('query', send_query_search_data)
     def test_send_query_search(self, query):
         yandex_search_page = YandexSearchPage(self.driver)
         with allure.step('The page with the results for the query was opened'):
-            assert yandex_search_page.send_query_search(query) == query
+            assert yandex_search_page.send_query_search(query)['value'] == query
+
+
+    @allure.feature('Сhecking if a query result exists')
+    @allure.story('Go to results page')
+    @pytest.mark.parametrize('query', send_query_search_data)
+    def test_get_query_results(self, query):
+        yandex_search_page = YandexSearchPage(self.driver)
+        with allure.step('The page with the results for the query was opened'):
+            results = yandex_search_page.send_query_search(query)['results']
+            assert results
 
 
     @allure.feature('Checking for elements on the page when changing the design')
