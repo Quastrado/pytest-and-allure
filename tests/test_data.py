@@ -27,7 +27,7 @@ check_for_links_data = [
 following_link_data = [
     ('Yandex Logo', '/html/body/main/div[1]/a', '/html/body'),
     ('Login', '/html/body/main/div[1]/div/a', '//*[@id="root"]/div/div[2]/div[2]/div/div/div[2]'),
-    ('Yandex Weather', '/html/body/main/div[2]/div/a[1]', '/html/body/div[1]'),
+    ('Yandex Weather', '/html/body/main/div[2]/div/a[1]', '/html/body/div[1]/div[3]'),
     ('Yandex Traffic', '/html/body/main/div[2]/div/a[2]', '/html/body/div[1]/div[1]/ymaps/ymaps[1]/canvas'),
     ('Others', '/html/body/main/div[2]/div/a[3]', '/html/body/div[1]/div[2]/table')
 ]
