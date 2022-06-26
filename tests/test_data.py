@@ -1,26 +1,26 @@
-url = 'https://ya.ru/'
+from selenium.common.exceptions import TimeoutException as ex
 
+url = 'https://ya.ru/'
 
 # Test 1 Checking the functionality of the search string
 
-send_query_search_data = [
-    ('картина'),
-    ('корзина'),
+get_upper_input_search_value = [
     ('картонка'),
     ('маленькая собачонка'),
-    ('stroka'),
     ('bridge'),
-    ('blablabla'),
-    ('ndsvnv[   wuef    n   inwv0   ='),
-    (' nqe83vn831v-13v13n48-9gn4-ghg'),
     ('invalid data'),
     ('при людях матерные запросы проверять не буду'),
     ('010100010001110111001011100111'),
-    ('so')
+    ('12365129060964096746327460429734'),
+    ('..,,;.!!!:.-,.???""'),
+    ('@#$*$[>>)/%^&'),
+    ('ицктгиттгктцгзкеигзтв вауаукмукщ'),
+    ('euvnrvnergtgysaaoerferyoierqygot')
 ]
 
-# Test 2 Checking for elements on the page when changing the design
-from selenium.common.exceptions import TimeoutException as ex
+
+
+# Test 3 Checking for elements on the page when changing the design
 
 check_for_links_data = [
     (ex, 'Yandex Logo', '/html/body/main/div[1]/a'),
