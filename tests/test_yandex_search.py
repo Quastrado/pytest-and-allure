@@ -10,11 +10,21 @@ class TestHomepage:
 
     @allure.feature('Check value in top input')
     @allure.story('Go to results page')
-    @pytest.mark.parametrize('query', get_upper_input_search_value)
+    @pytest.mark.parametrize('query', upper_input_search_value_data)
     def test_get_upper_input_search_value(self, query):
         yandex_search_page = YandexSearchPage(self.driver)
         with allure.step('The page with the results for the query was opened'):
             assert yandex_search_page.get_upper_input_search_value(query) == query
+
+
+    @allure.feature('NEGATIVE Check value in top input')
+    @allure.story('Go to results page')
+    @pytest.mark.parametrize('expected_eception, query', upper_input_search_value_data)
+    def test_get_upper_input_search_value(self, expected_exception, query):
+        yandex_search_page = YandexSearchPage(self.driver)
+        with allure.step('The page with the results for the query was opened'):
+            with pytest.raises(expected_exception):
+                assert yandex_search_page.get_upper_input_search_value(query) == query
 
 
     @allure.feature('Checking for automatic whitespace removal')

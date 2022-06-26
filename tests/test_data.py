@@ -4,7 +4,7 @@ url = 'https://ya.ru/'
 
 # Test 1 Checking the functionality of the search string
 
-get_upper_input_search_value = [
+upper_input_search_value_data = [
     ('картонка'),
     ('маленькая собачонка'),
     ('bridge'),
@@ -16,6 +16,10 @@ get_upper_input_search_value = [
     ('@#$*$[>>)/%^&'),
     ('ицктгиттгктцгзкеигзтв вауаукмукщ'),
     ('euvnrvnergtgysaaoerferyoierqygot')
+]
+
+negative_upper_input_search_value_data = [
+    (ex, '')
 ]
 
 # Test 2 Checking for automatic whitespace removal
