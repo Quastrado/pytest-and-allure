@@ -8,13 +8,13 @@ import allure
 @pytest.mark.usefixtures('setup')
 class TestHomepage:
 
-    # @allure.feature('Check value in top input')
-    # @allure.story('Go to results page')
-    # @pytest.mark.parametrize('query', get_upper_input_search_value)
-    # def test_get_upper_input_search_value(self, query):
-    #     yandex_search_page = YandexSearchPage(self.driver)
-    #     with allure.step('The page with the results for the query was opened'):
-    #         assert yandex_search_page.get_upper_input_search_value(query) == query
+    @allure.feature('Check value in top input')
+    @allure.story('Go to results page')
+    @pytest.mark.parametrize('query', get_upper_input_search_value)
+    def test_get_upper_input_search_value(self, query):
+        yandex_search_page = YandexSearchPage(self.driver)
+        with allure.step('The page with the results for the query was opened'):
+            assert yandex_search_page.get_upper_input_search_value(query) == query
 
 
     @allure.feature('Checking for automatic whitespace removal')
