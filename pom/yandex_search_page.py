@@ -19,12 +19,19 @@ class YandexSearchPage(SeleniumBase):
         central_input_search = self.is_present('xpath', self.__central_input_search_xpath)
         central_input_search.send_keys(query)
         central_input_search.send_keys(Keys.ENTER)
+        
+        
+    def get_upper_input_search_value(self, query):
+        self.send_query_search(query)
         upper_input_search = self.is_visiable('xpath', self.__upper_input_search_xpath)
-        value = upper_input_search.get_attribute(upper_input_search_value)
-        results = self.are_present('xpath', search_results_xpath)
-        return {'value': value, 'results': results}
+        return upper_input_search.get_attribute(upper_input_search_value)
 
-    
+
+    def get_search_results(self, query):
+        self.send_query_search(query)
+        return self.are_present('xpath', search_results_xpath)
+        
+        
     def find_element_after_switch(self, xpath):
         try:
             self.is_visiable('xpath', xpath)
