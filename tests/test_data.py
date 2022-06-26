@@ -18,7 +18,14 @@ get_upper_input_search_value = [
     ('euvnrvnergtgysaaoerferyoierqygot')
 ]
 
+# Test 2 Checking for automatic whitespace removal
 
+check_whitespace_removal_data = [
+    ('two  whitespaces', 'two whitespaces'),
+    (' left whitespace', 'left whitespace'),
+    ('right whitespace ', 'right whitespace'),
+    ('   just   many   whitespaces   ', 'just many whitespaces')
+]
 
 # Test 3 Checking for elements on the page when changing the design
 

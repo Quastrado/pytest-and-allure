@@ -8,25 +8,24 @@ import allure
 @pytest.mark.usefixtures('setup')
 class TestHomepage:
 
-    @allure.feature('Request text matching')
+    # @allure.feature('Check value in top input')
+    # @allure.story('Go to results page')
+    # @pytest.mark.parametrize('query', get_upper_input_search_value)
+    # def test_get_upper_input_search_value(self, query):
+    #     yandex_search_page = YandexSearchPage(self.driver)
+    #     with allure.step('The page with the results for the query was opened'):
+    #         assert yandex_search_page.get_upper_input_search_value(query) == query
+
+
+    @allure.feature('Checking for automatic whitespace removal')
     @allure.story('Go to results page')
-    @pytest.mark.parametrize('query', send_query_search_data)
-    def test_send_query_search(self, query):
+    @pytest.mark.parametrize('query, query_after_input', check_whitespace_removal_data)
+    def test_get_upper_input_search_value(self, query, query_after_input):
         yandex_search_page = YandexSearchPage(self.driver)
         with allure.step('The page with the results for the query was opened'):
-            assert yandex_search_page.send_query_search(query)['value'] == query
-
-
-    @allure.feature('Сhecking if a query result exists')
-    @allure.story('Go to results page')
-    @pytest.mark.parametrize('query', send_query_search_data)
-    def test_get_query_results(self, query):
-        yandex_search_page = YandexSearchPage(self.driver)
-        with allure.step('The page with the results for the query was opened'):
-            results = yandex_search_page.send_query_search(query)['results']
-            assert results
-
-
+            assert yandex_search_page.get_upper_input_search_value(query) == query_after_input
+            
+    
     @allure.feature('Checking for elements on the page when changing the design')
     @allure.story('Change of design to the old one and try to find element')
     @pytest.mark.parametrize('expected_exception, element_name, xpath', check_for_links_data)
