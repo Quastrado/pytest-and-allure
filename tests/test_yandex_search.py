@@ -36,7 +36,7 @@ class TestHomepage:
             with allure.step(f'Checking for the absence of an element: {element_name}'):
                 yandex_search_page.find_element_after_switch(xpath) == True
                 not_found = False
-        except:
+        except expected_exception:
             not_found = True
         assert not_found
 
