@@ -1,5 +1,3 @@
-from os import link
-from time import time
 import pytest
 from pom.yandex_search_page import YandexSearchPage
 from .test_data import *
