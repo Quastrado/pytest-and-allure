@@ -15,11 +15,12 @@ upper_input_search_value_data = [
     ('..,,;.!!!:.-,.???""'),
     ('@#$*$[>>)/%^&'),
     ('ицктгиттгктцгзкеигзтв вауаукмукщ'),
-    ('euvnrvnergtgysaaoerferyoierqygot')
+    ('euvnrvnergtgysaaoerferyoierqygot'),
+    ('x'*400)
 ]
 
 negative_upper_input_search_value_data = [
-    (ex, '')
+    (ex, ''),
 ]
 
 # Test 2 Checking for automatic whitespace removal
